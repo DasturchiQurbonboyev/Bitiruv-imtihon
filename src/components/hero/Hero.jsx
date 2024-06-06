@@ -61,7 +61,7 @@ export default function Hero() {
                                             до 5 февраля
                                         </p>
                                     </div>
-                                    <div>
+                                    <div className='flex justify-end'>
                                         <img src={hero} alt="" />
                                     </div>
                                 </div>
