@@ -64,3 +64,98 @@ element.style {
     margin-right: -100px;
     /* position: relative; */
 }
+
+.hero {
+    max-width: 1714px;
+    background: #F2F2F2;
+    margin: 0 auto;
+    border-radius: 60px;
+}
+
+
+.hero__swiper {
+    display: grid;
+    justify-content: center;
+    border-radius: 50px;
+    gap: 32px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 40px;
+}
+
+.hero__swiper__text {
+    text-align: start;
+}
+
+.hero__swiper__text h3 {
+    font-weight: 700;
+    max-width: 588px;
+    font-size: 54px;
+}
+
+.hero__swiper__text p {
+    background: #454545;
+    color: white;
+    padding: 15px 35px;
+    display: inline-block;
+    border-radius: 100px;
+    font-size: 54px;
+    font-weight: 700;
+}
+
+
+@media (max-width:990px) {
+    .hero__swiper__text p {
+        font-size: 45px;
+    }
+
+    .hero__swiper__text h3 {
+        font-size: 50px;
+    }
+}
+
+@media (max-width:850px) {
+    .hero__swiper__text p {
+        font-size: 40px;
+    }
+
+    .hero__swiper__text h3 {
+        font-size: 40px;
+        padding: 10px 25px;
+    }
+}
+
+
+@media (max-width:790px) {
+    .hero__swiper {
+        display: flex;
+        flex-direction: column-reverse;
+        padding-bottom: 50px;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width:600px) {
+    .hero__swiper__text p {
+        font-size: 25px;
+    }
+
+    .hero__swiper__text h3 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width:400px) {
+    .hero__swiper__text p {
+        font-size: 20px;
+    }
+
+    .hero__swiper__text h3 {
+        font-size: 20px;
+    }
+
+    .hero__swiper__img {
+        height: 250px;
+
+    }
+}

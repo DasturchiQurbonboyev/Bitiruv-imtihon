@@ -79,8 +79,7 @@ export default function Hero() {
 
     return (
         <div className="pt-[100px]">
-
-            <div className='kontaine max-w-[1714px] bg-[#F2F2F2]  mx-auto rounded-[60px] '>
+            <div className='kontaine hero  '>
                 <Swiper
                     spaceBetween={30}
                     centeredSlides={true}
@@ -101,15 +100,15 @@ export default function Hero() {
                             <SwiperSlide key={inx} className='rounded-[50px] bg-[#F2F2F2]'>
                                 <div className=' bg-[#F2F2F2]   rounded-[50px]'>
                                     <div className=' bg-inherit bg-[#F2F2F2]'>
-                                        <div className='min-[990px]:grid max-[990px]:flex flex-col-reverse  justify-center rounded-[50px] gap-8 grid-cols-2 mt-[40px]'>
-                                            <div className=' text-start'>
-                                                <h3 className='font-[700] text-start max-w-[588px] text-[54px]'>{el.description}</h3>
-                                                <p className=" text-start bg-[#454545] inline-block text-white px-[35px] py-[15px] rounded-[100px] text-[54px] font-[700] ">
+                                        <div className='hero__swiper   '>
+                                            <div className=' hero__swiper__text'>
+                                                <h3 className=''>{el.description}</h3>
+                                                <p className=" ">
                                                     {el.title}
                                                 </p>
                                             </div>
-                                            <div>
-                                                <img src={el.img} alt="" />
+                                            <div className='hero__swiper__img'>
+                                                <img className='w-full object-contain' src={el.img} alt="" />
                                             </div>
                                         </div>
                                     </div>

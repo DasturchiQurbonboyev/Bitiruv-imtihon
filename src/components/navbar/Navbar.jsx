@@ -5,6 +5,7 @@ import search from '../../assets/navbar/search.png'
 import like from '../../assets/navbar/like.png'
 import svyaz from '../../assets/navbar/svyaz.png'
 import cart from '../../assets/navbar/cart.png'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -12,12 +13,12 @@ const Navbar = () => {
             <div className='kontainer'>
                 <div className='flex justify-between items-center py-[12px]'>
                     <ul className='flex justify-between items-center gap-[27px]'>
-                        <li><a className='text-[#454545] text-[14px] font-[600] leading-[19.2px]' href="#">О компании</a></li>
-                        <li><a className='text-[#454545] text-[14px] font-[600] leading-[19.2px]' href="#">Доставка и оплата</a></li>
-                        <li><a className='text-[#454545] text-[14px] font-[600] leading-[19.2px]' href="#">Возврат</a></li>
-                        <li><a className='text-[#454545] text-[14px] font-[600] leading-[19.2px]' href="#">Гарантии</a></li>
-                        <li><a className='text-[#454545] text-[14px] font-[600] leading-[19.2px]' href="#">Контакты</a></li>
-                        <li><a className='text-[#454545] text-[14px] font-[600] leading-[19.2px]' href="#">Блог</a></li>
+                        <li><a href='#' className='text-[#454545] text-[14px] font-[600] leading-[19.2px]' >О компании</a></li>
+                        <li><a href='#' className='text-[#454545] text-[14px] font-[600] leading-[19.2px]' >Доставка и оплата</a></li>
+                        <li><a href='#' className='text-[#454545] text-[14px] font-[600] leading-[19.2px]' >Возврат</a></li>
+                        <li><a href='#' className='text-[#454545] text-[14px] font-[600] leading-[19.2px]' >Гарантии</a></li>
+                        <li><a href='#' className='text-[#454545] text-[14px] font-[600] leading-[19.2px]' >Контакты</a></li>
+                        <li><a href='#blog' className='text-[#454545] text-[14px] font-[600] leading-[19.2px]' >Блог</a></li>
                     </ul>
                     <div className='flex justify-center items-center gap-6'>
                         <a href="+99888008904656">8 (800) 890-46-56</a>
@@ -28,7 +29,9 @@ const Navbar = () => {
             <nav>
                 <div className='kontainer flex  items-center gap-[29px]'>
                     <div>
-                        <img src={logo} alt="logo" />
+                        <Link to={"/"}>
+                            <img src={logo} alt="logo" />
+                        </Link>
                     </div>
                     <div className='flex flex-grow gap-[12px] items-end'>
                         <div className=' cursor-pointer bg-[#000] flex py-[18px] px-[28px] rounded-[100px] w-[150px] gap-2'>

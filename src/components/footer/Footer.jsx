@@ -9,7 +9,7 @@ const Footer = () => {
             <div className='kontainer'>
                 <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                     <div className="md:flex md:justify-between">
-                        <div className="mb-6 md:mb-0">
+                        <div className="mb-6 grid gap-[35px]">
                             <div>
                                 <img src={logo} className="h-8 me-3" alt="Logo" />
                             </div>
@@ -25,7 +25,7 @@ const Footer = () => {
                         </div>
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">Покупателям</h2>
-                            <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                            <ul className="text-gray-500 grid gap-[27px] dark:text-gray-400 font-medium">
                                 <li className="">
                                     <a href="https://flowbite.com/" className="hover:underline">О компании</a>
                                 </li>
@@ -45,7 +45,7 @@ const Footer = () => {
                         </div>
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">Товары</h2>
-                            <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                            <ul className="text-gray-500 grid gap-[27px] dark:text-gray-400 font-medium">
                                 <li className="">
                                     <a href="https://github.com/themesberg/flowbite" className="hover:underline ">Люстры</a>
                                 </li>
@@ -67,7 +67,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div>
-                            <ul className="text-gray-500 dark:text-gray-400 font-medium mt-11">
+                            <ul className="text-gray-500 grid gap-[27px] dark:text-gray-400 font-medium mt-11">
                                 <li className="">
                                     <a href="#" className="hover:underline">Споты</a>
                                 </li>

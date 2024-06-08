@@ -1,8 +1,15 @@
 import React from 'react'
+import Brend from '../../components/brend/Brend'
+import Blog from '../../components/blog/Blog'
+import AboutComponent from '../../components/about/AboutComponent'
 
 const About = () => {
     return (
-        <div>About</div>
+        <div>
+            <AboutComponent />
+            <Brend />
+            <Blog />
+        </div>
     )
 }
 

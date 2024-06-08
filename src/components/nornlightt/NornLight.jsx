@@ -4,6 +4,8 @@ import night1 from '../../assets/nornlight/night1.png'
 import night2 from '../../assets/nornlight/night2.png'
 import night3 from '../../assets/nornlight/night3.png'
 import night4 from '../../assets/nornlight/night4.png'
+import { Link } from 'react-router-dom'
+import './NornLight.css'
 
 const NornLight = () => {
 
@@ -41,25 +43,31 @@ const NornLight = () => {
                     <h2 className='text-[#454545] text-[40px] font-[700] '>
                         Почему NORNLIGHT?
                     </h2>
-                    <div className='border rounded-[100px] px-[48px] py-[14px] flex items-center gap-[10px]'>
+                    {/* <Link> */}
+                    <div className='night__bnt__top border rounded-[100px] px-[48px] py-[14px] flex items-center gap-[10px]'>
                         <p className='text-[#454545] text-[16px] font-[500]   '>О компании</p>
                         <img src={buttonimg} alt="button" />
                     </div>
+                    {/* </Link> */}
                 </div>
-                <div className='grid grid-cols-4 gap-5'>
+                <div className=' norn__light '>
                     {
                         nights?.map((el, inx) => (
-                            <div key={inx} className='max-w-[310px] border  p-[40px] '>
-                                <div className='w-[80px] h-[80px] bg-[#454545] flex justify-center items-center rounded-md mb-[80px]'>
+                            <div key={inx} className=' norn__light__item  '>
+                                <div className='w-[80px] h-[80px] bg-[#454545] flex justify-center items-center rounded-md mb-[40px] md:mb-[80px]'>
                                     <img src={el.img} alt="" />
                                 </div>
-                                <div>
+                                <div className='flex flex-col gap-3'>
                                     <h5 className='h-[52px] text-[#454545] text-[20px] font-[700] leading-[26px]'>{el.title}</h5>
                                     <p className='text-[#454545] text-[16px] font-[400] leading-[20.8px] mt-[20px]'>{el.description}</p>
                                 </div>
                             </div>
                         ))
                     }
+                </div>
+                <div className='night__bnt border rounded-[100px] px-[48px] py-[14px] flex items-center gap-[10px]'>
+                    <p className='text-[#454545] text-[16px] font-[500]   '>О компании</p>
+                    <img src={buttonimg} alt="button" />
                 </div>
             </div>
         </div>

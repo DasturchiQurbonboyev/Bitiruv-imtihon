@@ -1,0 +1,38 @@
+.lamps {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 100px;
+}
+
+.lamps__title p {
+    font-size: 40px;
+    font-weight: 700;
+    color: #454545;
+    line-height: 54.64px;
+    max-width: 330px;
+}
+
+@media (max-width:630px) {
+    .lamps {
+        grid-template-columns: auto;
+    }
+
+    .lamps__title p {
+        font-size: 35px;
+        max-width: 500px;
+        line-height: 40px;
+    }
+}
+
+@media (max-width:340px) {
+    .lamps {
+        grid-template-columns: auto;
+    }
+
+    .lamps__title p {
+        font-size: 28px;
+        max-width: 500px;
+        line-height: 40px;
+    }
+}
