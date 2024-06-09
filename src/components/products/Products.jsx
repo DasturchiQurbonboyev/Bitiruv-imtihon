@@ -2,22 +2,35 @@ import React from 'react'
 import buttonimg from '../../assets/hero/buttonimg.png'
 import cart from '../../assets/hero/cart.png'
 import product from '../../assets/hero/product.png'
+import './Products.css'
 
 const Products = () => {
     return (
         <div>
             <div className='kontainer'>
-                <div className='flex items-center justify-between pb-[40px] pt-[70px]'>
-                    <h2 className='text-[#454545] text-[40px] font-[700] '>
+                <div className='product__title__btn '>
+                    <h2 className=' product__title  '>
                         Популярные товары
                     </h2>
-                    <div className='border rounded-[100px] px-[48px] py-[14px] flex items-center gap-[10px]'>
+                    <div className=' more__product__btn'>
                         <p className='text-[#454545] text-[16px] font-[500]   '>Все товары</p>
                         <img src={buttonimg} alt="button" />
                     </div>
+                    <div className='product__category__select'>
+                        <select name="" id="" className=''>
+                            <option value="">Светильники</option>
+                            <option value="">Люстры</option>
+                            <option value="">Лампы</option>
+                            <option value="">Настольные лампы</option>
+                            <option value="">Ночники</option>
+                            <option value="">Подстветка</option>
+                            <option value="">Уличное освещение</option>
+                            <option value="">Мебельные установки</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div className='bg-[#F2F2F2] px-[25px] py-[11px] rounded-[100px]'>
+                <div className='bg-[#F2F2F2] product__category__item px-[25px] py-[11px] rounded-[100px]'>
                     <ul className='flex justify-between gap-5'>
                         <li className='text-[#454545] text-[16px] font-[600] leading-[21.86px]'>Светильники</li>
                         <li className='text-[#454545] text-[16px] font-[600] leading-[21.86px]'>Люстры</li>
