@@ -38,7 +38,7 @@ const NavbarLinks = ({ onClick }) => (
 
 const ContactInfo = () => (
     <div className='flex flex-col justify-center items-center gap-3 mt-8'>
-        <a href="+99888008904656">8 (800) 890-46-56</a>
+        <a href="tel:+99888008904656">8 (800) 890-46-56</a>
         <p>Заказать звонок</p>
     </div>
 );
@@ -77,7 +77,7 @@ const Navbar = () => {
                         <li><Link to={"/blog"} onClick={() => setNavbarToggle(false)} className='text-[#454545] text-[14px] font-[600] leading-[19.2px]'>Блог</Link></li>
                     </ul>
                     <div className='flex justify-center items-center gap-6'>
-                        <a href="+99888008904656">8 (800) 890-46-56</a>
+                        <a href="tel:tel:+99888008904656">8 (800) 890-46-56</a>
                         <p>Заказать звонок</p>
                     </div>
                 </div>
@@ -106,18 +106,24 @@ const Navbar = () => {
                             <img className='cursor-pointer' src={search} alt="search" />
                         </div>
                         <div className='flex items-end gap-[30px]'>
-                            <div className='flex flex-col cursor-pointer justify-center items-center'>
-                                <img src={like} alt="like" />
-                                <span>Избранное</span>
-                            </div>
-                            <div className='svyaz'>
-                                <img src={svyaz} alt="like" />
-                                <span>Сравнение</span>
-                            </div>
-                            <div className='flex flex-col cursor-pointer justify-center items-center'>
-                                <img src={cart} alt="like" />
-                                <span>Корзина</span>
-                            </div>
+                            <Link to={"/wishlist"}>
+                                <div className='flex flex-col cursor-pointer justify-center items-center'>
+                                    <img src={like} alt="like" />
+                                    <span>Избранное</span>
+                                </div>
+                            </Link>
+                            <Link to={"/svyaz"}>
+                                <div className='svyaz'>
+                                    <img src={svyaz} alt="like" />
+                                    <span>Сравнение</span>
+                                </div>
+                            </Link>
+                            <Link to={"/card"}>
+                                <div className='flex flex-col justify-center items-center'>
+                                    <img src={cart} alt="like" />
+                                    <span>Корзина</span>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -25,7 +25,7 @@ function App() {
         <Route path='/garant' element={<GarantPage />} />
         <Route path='/return' element={<ReturnPage />} />
         <Route path='/contact' element={<ContactPage />} />
-        <Route path='/katalog' element={<KatalogPage />} />
+        <Route path='/card' element={<p />} />
       </Routes>
 
       <Footer />

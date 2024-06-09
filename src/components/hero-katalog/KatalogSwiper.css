@@ -9,8 +9,13 @@
 }
 
 
+
 .media__katalog1 {
     display: none;
+}
+
+.katalog__title {
+    padding-top: 50px;
 }
 
 @media (max-width:760px) {

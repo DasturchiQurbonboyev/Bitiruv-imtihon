@@ -6,7 +6,7 @@ import './Products.css'
 
 const Products = () => {
     return (
-        <div>
+        <div className='pt-[50px]'>
             <div className='kontainer'>
                 <div className='product__title__btn '>
                     <h2 className=' product__title  '>

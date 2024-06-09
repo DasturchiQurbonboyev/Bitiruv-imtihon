@@ -64,7 +64,7 @@ const Brend = () => {
     return (
 
         <div className='kontainer'>
-            <div>
+            <div className='brend__title'>
                 <div className='flex items-center justify-between pb-[40px]'>
                     <h2 className='text-[#454545] text-[28px] md:text-[40px] font-[700] '>
                         Только проверенные бренды

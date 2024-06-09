@@ -92,7 +92,7 @@ const HeroKatalog = ({ klass, count }) => {
     ]
 
     return (
-        <div className=' '>
+        <div className='katalog__title '>
             <div className='kontainer '>
                 <div className={`${klass} flex justify-between items-center   `}>
                     <h2 className='text-[#454545] text-[40px] font-[700]     '>Каталог</h2>
