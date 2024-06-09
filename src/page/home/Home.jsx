@@ -12,7 +12,7 @@ const Home = () => {
         <div>
             <Hero />
             <HeroKatalog count={6} klass={""} />
-            <NornLight />
+            <NornLight hidden={"hidden"} />
             <Products />
             <Brend />
             <Blog count={3} hidden={""} />

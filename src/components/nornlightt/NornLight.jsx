@@ -7,7 +7,7 @@ import night4 from '../../assets/nornlight/night4.png'
 import { Link } from 'react-router-dom'
 import './NornLight.css'
 
-const NornLight = () => {
+const NornLight = ({ hidden }) => {
 
 
     let nights = [
@@ -40,11 +40,11 @@ const NornLight = () => {
         <div className='kontainer'>
             <div className='pt-[50px]'>
                 <div className='flex items-center justify-between pb-[40px]'>
-                    <h2 className='text-[#454545] text-[40px] font-[700] '>
+                    <h2 className=' norn__title  '>
                         Почему NORNLIGHT?
                     </h2>
                     {/* <Link> */}
-                    <div className='night__bnt__top border rounded-[100px] px-[48px] py-[14px] flex items-center gap-[10px]'>
+                    <div className={` night__bnt__top `}>
                         <p className='text-[#454545] text-[16px] font-[500]   '>О компании</p>
                         <img src={buttonimg} alt="button" />
                     </div>
@@ -65,7 +65,7 @@ const NornLight = () => {
                         ))
                     }
                 </div>
-                <div className='night__bnt border rounded-[100px] px-[48px] py-[14px] flex items-center gap-[10px]'>
+                <div className='night__bnt border rounded-[100px] px-[48px] py-[14px]  items-center gap-[10px]'>
                     <p className='text-[#454545] text-[16px] font-[500]   '>О компании</p>
                     <img src={buttonimg} alt="button" />
                 </div>
