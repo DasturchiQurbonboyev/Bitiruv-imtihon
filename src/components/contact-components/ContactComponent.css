@@ -1,0 +1,12 @@
+.contact__title {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding-top: 100px;
+}
+
+@media (max-width:400px) {
+    .contact__title {
+        flex-direction: column;
+    }
+}

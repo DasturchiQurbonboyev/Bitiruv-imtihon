@@ -92,7 +92,7 @@ const HeroKatalog = ({ klass, count }) => {
     ]
 
     return (
-        <div className='pt-[102px] '>
+        <div className=' '>
             <div className='kontainer '>
                 <div className={`${klass} flex justify-between items-center   `}>
                     <h2 className='text-[#454545] text-[40px] font-[700]     '>Каталог</h2>
@@ -156,7 +156,7 @@ const HeroKatalog = ({ klass, count }) => {
                             }
                         </div >
                     </Swiper >
-                    <Link className='katalog__btn1' to={"/katalog"}>
+                    <Link className={`${klass} katalog__btn1`} to={"/katalog"}>
                         <div className='mt-[32px] border rounded-[100px] px-[48px] py-[14px] flex justify-center items-center gap-[10px]'>
                             <p className='text-[#454545] text-[16px] font-[500]   '>Весь каталог</p>
                             <img src={buttonimg} alt="" />
@@ -196,7 +196,7 @@ const HeroKatalog = ({ klass, count }) => {
                             }
                         </div >
                     </Swiper >
-                    <Link className='' to={"/katalog"}>
+                    <Link className={`${klass}`} to={"/katalog"}>
                         <div className='mt-[32px] border rounded-[100px] px-[48px] py-[14px] flex justify-center items-center gap-[10px]'>
                             <p className='text-[#454545] text-[16px] font-[500]   '>Весь каталог</p>
                             <img src={buttonimg} alt="" />

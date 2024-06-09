@@ -37,3 +37,7 @@
     font-size: 13px;
     background: #000;
 }
+
+.swiper-pagination {
+    position: relative;
+}

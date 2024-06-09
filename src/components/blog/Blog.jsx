@@ -111,7 +111,7 @@ const Blog = ({ count, hidden }) => {
                             ))
                         }
                     </Swiper>
-                    <Link className='blog__btn1' to={"/blog"}>
+                    <Link className={`${hidden} blog__btn1`} to={"/blog"}>
                         <div className='border rounded-[100px]  py-[14px] flex-grow flex justify-center items-center gap-[10px]'>
                             <p className='text-[#454545] text-[16px] font-[500]   '>Перейти в блог</p>
                             <img src={buttonimg} alt="button" />

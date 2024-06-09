@@ -2,13 +2,14 @@ import React from 'react'
 import logo from '../../assets/navbar/logo.png'
 import visa from '../../assets/footer/visa.png'
 import vk from '../../assets/footer/vk.png'
+import './Footer.css'
 
 const Footer = () => {
     return (
         <div className='bg-[#F2F2F2] mt-10'>
             <div className='kontainer'>
                 <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-                    <div className="md:flex md:justify-between">
+                    <div className=" footer__respons  ">
                         <div className="mb-6 grid gap-[35px]">
                             <div>
                                 <img src={logo} className="h-8 me-3" alt="Logo" />
@@ -44,7 +45,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">Товары</h2>
+                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase mt-[25px] sm:mt-[0] ">Товары</h2>
                             <ul className="text-gray-500 grid gap-[27px] dark:text-gray-400 font-medium">
                                 <li className="">
                                     <a href="https://github.com/themesberg/flowbite" className="hover:underline ">Люстры</a>

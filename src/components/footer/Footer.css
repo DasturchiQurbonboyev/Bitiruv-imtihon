@@ -1,0 +1,13 @@
+.footer__respons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+@media (max-width:500px) {
+    .footer__respons {
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+}
