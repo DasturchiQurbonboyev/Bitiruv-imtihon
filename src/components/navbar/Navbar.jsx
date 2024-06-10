@@ -93,8 +93,12 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <div className='navbar__res'>
-                        <FaRegHeart size={25} />
-                        <CgShoppingCart size={27} />
+                        <Link to={"/wishlist"}>
+                            <FaRegHeart size={25} />
+                        </Link>
+                        <Link to={"/cart"}>
+                            <CgShoppingCart size={27} />
+                        </Link>
                     </div>
                     <div className='navbar__minu justify-end flex-grow gap-[12px] items-end'>
                         <div className='navbar__katalog__btn'>
