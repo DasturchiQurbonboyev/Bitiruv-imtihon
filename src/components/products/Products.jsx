@@ -10,6 +10,8 @@ import { FcLike } from 'react-icons/fc'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleSingle } from '../../context/slice/singleSlice.js'
 import { toggleWishlist } from '../../context/slice/wishlistSlice.js'
+import { addToCart } from '../../context/slice/cartSlice.js'
+import { toast } from 'react-toastify'
 
 const Products = () => {
     const [limit, setLimit] = useState(8); // limit uchun holat
@@ -92,7 +94,10 @@ const Products = () => {
                                             6 399₽
                                         </p>
                                     </div>
-                                    <div>
+                                    <div className='cursor-pointer' onClick={() => {
+                                        toast.success("Add to Cart"),
+                                            dispatch(addToCart(el))
+                                    }}>
                                         <img src={cart} alt="" />
                                     </div>
                                 </div>

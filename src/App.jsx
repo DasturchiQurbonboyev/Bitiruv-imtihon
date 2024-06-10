@@ -35,7 +35,7 @@ function App() {
         <Route path='/wishlist' element={<Like />} />
         <Route path='/single' element={<Single />} />
         <Route path='/products' element={<ProductsPage />} />
-        <Route path='/card' element={<CartPage />} />
+        <Route path='/cart' element={<CartPage />} />
       </Routes>
       <ToastContainer />
       <Footer />

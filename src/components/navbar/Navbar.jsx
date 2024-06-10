@@ -12,6 +12,7 @@ import like from '../../assets/navbar/like.png';
 import svyaz from '../../assets/navbar/svyaz.png';
 import cart from '../../assets/navbar/cart.png';
 import './Navbar.css';
+import { useSelector } from 'react-redux';
 
 const NavbarLinks = ({ onClick }) => (
     <ul className='mt-5'>
@@ -46,6 +47,10 @@ const ContactInfo = () => (
 const Navbar = () => {
     const [navbarToggle, setNavbarToggle] = useState(false);
 
+    const cartData = useSelector(state => state.cart.value)
+    const wishes = useSelector(state => state.wishlist.value)
+
+
     return (
         <header>
             <div className='kontainer'>
@@ -56,11 +61,23 @@ const Navbar = () => {
                         </div>
                         <div className='flex gap-10'>
                             <Link to={"/wishlist"} onClick={() => setNavbarToggle(false)}>
-                                <FaRegHeart className='cursor-pointer' size={25} />
+                                <div className='relative'>
+                                    <FaRegHeart className='cursor-pointer' size={25} />
+                                    {wishes?.length > 0 ?
+                                        <div className='absolute -top-4 flex justify-center items-center rounded-[30px] -right-5 text-white bg-[#C63C3C] px-[5px]'>{wishes?.length}</div> :
+                                        <></>
+                                    }
+                                </div>
                             </Link>
                             <FiBarChart className='cursor-pointer' size={25} />
                             <Link to={"/cart"} onClick={() => setNavbarToggle(false)}>
-                                <CgShoppingCart className='cursor-pointer' size={27} />
+                                <div className='relative'>
+                                    <CgShoppingCart className='cursor-pointer' size={27} />
+                                    {wishes?.length > 0 ?
+                                        <div className='absolute -top-4 flex justify-center items-center rounded-[30px] -right-4 text-white bg-[#C63C3C] px-[5px]'>{wishes?.length}</div> :
+                                        <></>
+                                    }
+                                </div>
                             </Link>
                         </div>
                     </div>
@@ -97,11 +114,19 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <div className='navbar__res'>
-                        <Link to={"/wishlist"}>
+                        <Link className='relative' to={"/wishlist"}>
                             <FaRegHeart size={25} />
+                            {wishes?.length > 0 ?
+                                <div className='absolute -top-4 flex justify-center items-center rounded-[30px] -right-5 text-white bg-[#C63C3C] px-[5px]'>{wishes?.length}</div> :
+                                <></>
+                            }
                         </Link>
-                        <Link to={"/cart"}>
+                        <Link className='relative' to={"/cart"}>
                             <CgShoppingCart size={27} />
+                            {cartData?.length > 0 ?
+                                <div className='absolute -top-4 flex justify-center items-center rounded-[30px] -right-5 text-white bg-[#C63C3C] px-[5px]'>{cartData?.length}</div> :
+                                <></>
+                            }
                         </Link>
                     </div>
                     <div className='navbar__minu justify-end flex-grow gap-[12px] items-end'>
@@ -115,7 +140,11 @@ const Navbar = () => {
                         </div>
                         <div className='flex items-end gap-[30px]'>
                             <Link to={"/wishlist"}>
-                                <div className='flex flex-col cursor-pointer justify-center items-center'>
+                                <div className='flex relative flex-col cursor-pointer justify-center items-center'>
+                                    {wishes?.length > 0 ?
+                                        <div className='absolute -top-5 flex justify-center items-center rounded-[30px] -right-1 text-white bg-[#C63C3C] px-[5px]'>{wishes?.length}</div> :
+                                        <></>
+                                    }
                                     <img src={like} alt="like" />
                                     <span>Избранное</span>
                                 </div>
@@ -126,8 +155,12 @@ const Navbar = () => {
                                     <span>Сравнение</span>
                                 </div>
                             </Link>
-                            <Link to={"/card"}>
-                                <div className='flex flex-col justify-center items-center'>
+                            <Link to={"/cart"}>
+                                <div className='flex relative flex-col justify-center items-center'>
+                                    {cartData?.length > 0 ?
+                                        <div className='absolute -top-5 flex justify-center items-center rounded-[30px] -right-1 text-white bg-[#C63C3C] px-[5px]'>{cartData?.length}</div> :
+                                        <></>
+                                    }
                                     <img src={cart} alt="like" />
                                     <span>Корзина</span>
                                 </div>
