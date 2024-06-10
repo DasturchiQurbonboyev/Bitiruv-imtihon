@@ -49,7 +49,7 @@ const SingleComponent = () => {
                                 <p className='single__old__price'>522 000 ₽</p>
                             </div>
                             <p className='single__description'>Профессиональный гоночный хардтейл для кросс-кантри уровня Чемпионата и Кубка Мира. Одна из самых легких рам среди гоночных хардтейлов для кросс-кантри.</p>
-                            <div className='flex items-center gap-1 sm:gap-4 pt-[30px] lg:pt-[48px]'>
+                            <div className='flex items-center justify-around gap-1 sm:gap-4 pt-[30px] lg:pt-[48px]'>
                                 <div className='flex items-center'>
                                     <p className='w-[40px] bg-[#F8F8F8] justify-center flex items-center h-[52px]'>-</p>
                                     <p className='w-[40px] bg-[#F8F8F8] justify-center flex items-center h-[52px]'>1</p>
