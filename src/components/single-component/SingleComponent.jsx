@@ -5,17 +5,34 @@ import wastapp from '../../assets/product/wastapp.png'
 import tg from '../../assets/product/tg.png'
 import vk from '../../assets/product/vk.png'
 import viber from '../../assets/product/viber.png'
-import { FaRegHeart } from 'react-icons/fa'
-import { useSelector } from 'react-redux'
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { useDispatch, useSelector } from 'react-redux'
 import "./SingleComponent.css"
+import { toggleWishlist } from '../../context/slice/wishlistSlice'
+import { addToCart, incCart, decCart } from '../../context/slice/cartSlice';
 
 const SingleComponent = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-
+    const dispatch = useDispatch()
     const singleData = useSelector(state => state.single.value)[0]
+    const cartItems = useSelector(state => state.cart.value);
+    const wishlist = useSelector((state) => state.wishlist.value);
+    const isWishlisted = wishlist.some((item) => item._id === singleData._id);
+    console.log(wishlist);
+
+    let exists = cartItems.some(item => item.id === singleData.id);
+
+
+    const handleWishlistToggle = () => {
+        dispatch(toggleWishlist(singleData));
+    };
+
+    const handleAddToCart = () => {
+        dispatch(addToCart(singleData)); // singleData ma'lumotlarini cardga qo'shish
+    };
 
     return (
         <div className='pt-[50px]'>
@@ -26,7 +43,7 @@ const SingleComponent = () => {
                     </div>
                     <div className='single__right'>
                         <h1 className='single__title'>
-                            Встраиваемый светильник Novotech
+                            {singleData.title}
                         </h1>
                         <div className='flex flex-col gap-3'>
                             <p className='single__sort'> Scott</p>
@@ -44,21 +61,31 @@ const SingleComponent = () => {
                         </div>
                         <div>
                             <div className='single__price__item'>
-                                <p className='single__price '>435 000 ₽</p>
-                                <p className='single__old__price'>522 000 ₽</p>
+                                <p className='single__price '>{singleData.price}₽</p>
+                                <p className='single__old__price'>{singleData.price + 50} ₽</p>
                             </div>
                             <p className='single__description'>Профессиональный гоночный хардтейл для кросс-кантри уровня Чемпионата и Кубка Мира. Одна из самых легких рам среди гоночных хардтейлов для кросс-кантри.</p>
                             <div className='flex items-center justify-around gap-1 sm:gap-4 pt-[30px] lg:pt-[48px]'>
-                                <div className='flex items-center'>
-                                    <p className='w-[40px] bg-[#F8F8F8] justify-center flex items-center h-[52px]'>-</p>
-                                    <p className='w-[40px] bg-[#F8F8F8] justify-center flex items-center h-[52px]'>1</p>
-                                    <p className='w-[40px] bg-[#F8F8F8] justify-center flex items-center h-[52px]'>+</p>
-                                </div>
+                                {
+                                    exists ? (
+                                        <div className='flex items-center'>
+                                            <button onClick={() => dispatch(decCart(singleData))} className='w-[40px] bg-[#F8F8F8] justify-center flex items-center h-[52px]'>-</button>
+                                            <p className='w-[40px] bg-[#F8F8F8] justify-center flex items-center h-[52px]'>1</p>
+                                            <button onClick={() => dispatch(incCart(singleData))} className='w-[40px] bg-[#F8F8F8] justify-center flex items-center h-[52px]'>+</button>
+                                        </div>
+                                    ) :
+                                        <></>
+                                }
                                 <div>
-                                    <button className='bg-[#454545] text-white py-[12px] sm:py-[16px] px-[10px]  md:px-[25px] lg:px-[50px] rounded-[10px]   '>В корзину</button>
+                                    <button onClick={handleAddToCart} className='bg-[#454545] text-white py-[12px] sm:py-[16px] px-[10px]  md:px-[25px] lg:px-[50px] rounded-[10px]   '>В корзину</button>
                                 </div>
-                                <div className='bg-[#F8F8F8] flex items-center justify-center w-[52px] h-[52px] rounded-[10px]'>
-                                    <FaRegHeart size={25} />
+                                <div onClick={handleWishlistToggle} className='cursor-pointer bg-[#F8F8F8] flex items-center justify-center w-[52px] h-[52px] rounded-[10px]'>
+                                    {
+                                        isWishlisted ?
+                                            <FaHeart className='size-5' /> :
+                                            <FaRegHeart className='size-5' />
+                                    }
+
                                 </div>
                             </div>
                         </div>
@@ -123,3 +150,5 @@ const SingleComponent = () => {
 }
 
 export default SingleComponent
+
+

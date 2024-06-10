@@ -5,13 +5,17 @@ import product from '../../assets/hero/product.png'
 import './Products.css'
 import { useGetProductsQuery } from '../../context/api/productsApi'
 import { Link } from 'react-router-dom'
-import { FaRegHeart } from 'react-icons/fa'
-import { useDispatch } from 'react-redux'
-import { toggleSingle } from '../../context/slice/singleSlice.js'
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { FcLike } from 'react-icons/fc'
+import { useDispatch, useSelector } from 'react-redux'
+// import { toggleSingle } from '../../context/slice/singleSlice.js'
+import { toggleWishlist } from '../../context/slice/wishlistSlice.js'
 
 const Products = () => {
     const [limit, setLimit] = useState(8); // limit uchun holat
     const { data, isLoading, isError } = useGetProductsQuery();
+    const wishes = useSelector(state => state.wishlist.value)
+    console.log(wishes);
 
     const handleSeeMore = () => {
         setLimit((prevLimit) => prevLimit + 8); // har safar 8 ta mahsulotni qo'shish
@@ -66,8 +70,12 @@ const Products = () => {
 
                             <div key={el.id} className='max-w-[280px] border px-[16px] py-[28px]'>
                                 <div className='relative flex justify-center items-center mb-[32px]'>
-                                    <div className='absolute top-0 right-0'>
-                                        <FaRegHeart className='cursor-pointer' size={26} />
+                                    <div onClick={() => dispatch(toggleWishlist(el))} className='absolute top-0 right-0'>
+                                        {
+                                            wishes.some(w => w.id === el.id) ?
+                                                <FaHeart size={25} /> :
+                                                <FaRegHeart size={25} />
+                                        }
                                     </div>
                                     <Link to={"/single"}>
                                         <img onClick={() => dispatch(toggleSingle(el))} className='product__img' src={product} alt={el.title} title={el.title} />
