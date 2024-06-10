@@ -55,9 +55,13 @@ const Navbar = () => {
                             <RiCloseLargeFill onClick={() => setNavbarToggle(false)} className='cursor-pointer' size={28} />
                         </div>
                         <div className='flex gap-10'>
-                            <FaRegHeart className='cursor-pointer' size={25} />
+                            <Link to={"/wishlist"} onClick={() => setNavbarToggle(false)}>
+                                <FaRegHeart className='cursor-pointer' size={25} />
+                            </Link>
                             <FiBarChart className='cursor-pointer' size={25} />
-                            <CgShoppingCart className='cursor-pointer' size={27} />
+                            <Link to={"/cart"} onClick={() => setNavbarToggle(false)}>
+                                <CgShoppingCart className='cursor-pointer' size={27} />
+                            </Link>
                         </div>
                     </div>
                     <NavbarLinks onClick={() => setNavbarToggle(false)} />

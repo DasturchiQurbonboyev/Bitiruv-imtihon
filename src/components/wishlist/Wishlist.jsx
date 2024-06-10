@@ -5,7 +5,9 @@ import './Wishlist.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { FaHeart } from 'react-icons/fa'
 import { toggleWishlist } from '../../context/slice/wishlistSlice'
+import { addToCart } from '../../context/slice/cartSlice'
 import Empty from '../empty/Empty'
+import { toast } from 'react-toastify'
 
 
 const Wishlist = () => {
@@ -13,7 +15,6 @@ const Wishlist = () => {
 
 
     const wishes = useSelector(state => state.wishlist.value)
-    console.log(wishes);
     const dispatch = useDispatch()
 
 
@@ -24,10 +25,10 @@ const Wishlist = () => {
                     <div>
                         <p className='wishlist__title'>Избранные товары</p>
                     </div>
-                    <div className='products__list pt-14'>
+                    <div className='products__list pt-14 flex gap-5 flex-wrap justify-center'>
                         {
                             wishes?.map((el) => (
-                                <div key={el.id} className='max-w-[320px] border px-[16px] py-[28px]'>
+                                <div key={el.id} className='max-w-[280px] border px-[16px] py-[28px]'>
                                     <div className='relative flex justify-center items-center mb-[32px]'>
                                         <div className='absolute top-0 right-2'>
                                             <FaHeart onClick={() => dispatch(toggleWishlist(el))} className='cursor-pointer size-6' />
@@ -47,7 +48,10 @@ const Wishlist = () => {
                                                 6 399₽
                                             </p>
                                         </div>
-                                        <div>
+                                        <div onClick={() => {
+                                            toast.success("Add to Cart"),
+                                                dispatch(addToCart(el))
+                                        }}>
                                             <img src={cart} alt="" />
                                         </div>
                                     </div>

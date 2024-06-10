@@ -15,7 +15,6 @@ const Products = () => {
     const [limit, setLimit] = useState(8); // limit uchun holat
     const { data, isLoading, isError } = useGetProductsQuery();
     const wishes = useSelector(state => state.wishlist.value)
-    console.log(wishes);
 
     const handleSeeMore = () => {
         setLimit((prevLimit) => prevLimit + 8); // har safar 8 ta mahsulotni qo'shish

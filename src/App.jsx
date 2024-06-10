@@ -13,8 +13,12 @@ import ContactPage from './page/contact/ContactPage'
 import Like from './page/like/Like'
 import Single from './page/single/Single'
 import ProductsPage from './page/products/ProductsPage'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import CartPage from './page/cart/CartPage'
 
 function App() {
+
 
   return (
     <>
@@ -31,8 +35,9 @@ function App() {
         <Route path='/wishlist' element={<Like />} />
         <Route path='/single' element={<Single />} />
         <Route path='/products' element={<ProductsPage />} />
+        <Route path='/cart' element={<CartPage />} />
       </Routes>
-
+      <ToastContainer />
       <Footer />
     </>
   )
