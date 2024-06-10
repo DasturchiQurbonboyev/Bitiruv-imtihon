@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import { FcLike } from 'react-icons/fc'
 import { useDispatch, useSelector } from 'react-redux'
-// import { toggleSingle } from '../../context/slice/singleSlice.js'
+import { toggleSingle } from '../../context/slice/singleSlice.js'
 import { toggleWishlist } from '../../context/slice/wishlistSlice.js'
 
 const Products = () => {

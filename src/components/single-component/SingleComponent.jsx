@@ -21,7 +21,6 @@ const SingleComponent = () => {
     const cartItems = useSelector(state => state.cart.value);
     const wishlist = useSelector((state) => state.wishlist.value);
     const isWishlisted = wishlist.some((item) => item._id === singleData._id);
-    console.log(wishlist);
 
     let exists = cartItems.some(item => item.id === singleData.id);
 
@@ -31,7 +30,7 @@ const SingleComponent = () => {
     };
 
     const handleAddToCart = () => {
-        dispatch(addToCart(singleData)); // singleData ma'lumotlarini cardga qo'shish
+        dispatch(addToCart(singleData));
     };
 
     return (
@@ -81,11 +80,10 @@ const SingleComponent = () => {
                                 </div>
                                 <div onClick={handleWishlistToggle} className='cursor-pointer bg-[#F8F8F8] flex items-center justify-center w-[52px] h-[52px] rounded-[10px]'>
                                     {
-                                        isWishlisted ?
-                                            <FaHeart className='size-5' /> :
-                                            <FaRegHeart className='size-5' />
+                                        wishlist.some(w => w.id === singleData.id) ?
+                                            <FaHeart size={25} /> :
+                                            <FaRegHeart size={25} />
                                     }
-
                                 </div>
                             </div>
                         </div>
