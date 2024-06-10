@@ -10,6 +10,9 @@ import ShippingPage from './page/shipping/ShippingPage'
 import GarantPage from './page/garant/GarantPage'
 import ReturnPage from './page/return/ReturnPage'
 import ContactPage from './page/contact/ContactPage'
+import Like from './page/like/Like'
+import Single from './page/single/Single'
+import ProductsPage from './page/products/ProductsPage'
 
 function App() {
 
@@ -25,7 +28,9 @@ function App() {
         <Route path='/garant' element={<GarantPage />} />
         <Route path='/return' element={<ReturnPage />} />
         <Route path='/contact' element={<ContactPage />} />
-        <Route path='/card' element={<p />} />
+        <Route path='/wishlist' element={<Like />} />
+        <Route path='/single' element={<Single />} />
+        <Route path='/products' element={<ProductsPage />} />
       </Routes>
 
       <Footer />

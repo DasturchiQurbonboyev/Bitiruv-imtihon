@@ -32,9 +32,17 @@
     color: #454545;
 }
 
+.all__products__btn__bottom {
+    display: none;
+}
+
 
 @media (max-width:870px) {
     .product__category__select {
+        display: block;
+    }
+
+    .all__products__btn__bottom {
         display: block;
     }
 
