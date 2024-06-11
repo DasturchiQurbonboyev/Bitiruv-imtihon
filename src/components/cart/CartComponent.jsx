@@ -93,7 +93,7 @@ const CartComponent = () => {
                                 <div className='grid flex-grow md:grid-cols-4 gap-3'>
                                     <div>
                                         <p className='text-[#454545] text-[16px] font-[600]'>{el.title}</p>
-                                        <p>{el.price}₽</p>
+                                        <p>{el.price * el.quantity}₽</p>
                                     </div>
                                     <div>
                                         <p className='text-[#454545] text-[16px] font-[600]'>Светильник RADUGA COMBO XS Промышленное освещение; 50Вт; 230В; S4; XS;</p>
@@ -105,7 +105,7 @@ const CartComponent = () => {
                                     </div>
                                     <div className='flex justify-between items-center'>
                                         <div className='flex gap-5 items-center '>
-                                            <button className='w-[20px]' onClick={() => dispatch(decCart(el))}>-</button>
+                                            <button disabled={el.quantity <= 1} className='w-[20px]' onClick={() => dispatch(decCart(el))}>-</button>
                                             <p className='w-[60px] h-[60px] border rounded-[10px] flex justify-center items-center'>{el.quantity}</p>
                                             <button className='w-[20px]' onClick={() => dispatch(incCart(el))}>+</button>
                                         </div>

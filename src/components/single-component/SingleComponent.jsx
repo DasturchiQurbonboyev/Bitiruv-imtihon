@@ -180,6 +180,15 @@ const SingleComponent = () => {
 
     let exists = cartItems.some(item => item.id === singleData.id);
 
+    let kart = cartItems.map((el) => {
+        return el.id === singleData.id
+    })
+
+    let kartInx
+    for (let i = 0; i < kart.length; i++) {
+        kart[i] ? kartInx = i : ""
+    }
+
     const handleWishlistToggle = () => {
         dispatch(toggleWishlist(singleData));
     };
@@ -215,7 +224,7 @@ const SingleComponent = () => {
                         </div>
                         <div>
                             <div className='single__price__item'>
-                                <p className='single__price '>{singleData.price}₽</p>
+                                <p className='single__price '>{singleData.price * (kartInx ? cartItems[kartInx].quantity : 1)}₽</p>
                                 <p className='single__old__price'>{singleData.price + 50} ₽</p>
                             </div>
                             <p className='single__description'>Профессиональный гоночный хардтейл для кросс-кантри уровня Чемпионата и Кубка Мира. Одна из самых легких рам среди гоночных хардтейлов для кросс-кантри.</p>
@@ -223,9 +232,9 @@ const SingleComponent = () => {
                                 {
                                     exists ? (
                                         <div className='flex items-center'>
-                                            <button onClick={() => dispatch(decCart(singleData))} className='w-[40px] bg-[#F8F8F8] justify-center flex items-center h-[52px]'>-</button>
-                                            <p className='w-[40px] bg-[#F8F8F8] justify-center flex items-center h-[52px]'>1</p>
-                                            <button onClick={() => dispatch(incCart(singleData))} className='w-[40px] bg-[#F8F8F8] justify-center flex items-center h-[52px]'>+</button>
+                                            <button disabled={(kartInx ? cartItems[kartInx].quantity : 1) <= 1} onClick={() => dispatch(decCart(cartItems[kartInx]))} className='w-[40px] bg-[#F8F8F8] justify-center flex items-center h-[52px]'>-</button>
+                                            <p className='w-[40px] bg-[#F8F8F8] justify-center flex items-center h-[52px]'>{kartInx ? cartItems[kartInx].quantity : 1}</p>
+                                            <button onClick={() => dispatch(incCart(cartItems[kartInx]))} className='w-[40px] bg-[#F8F8F8] justify-center flex items-center h-[52px]'>+</button>
                                         </div>
                                     ) :
                                         <></>
