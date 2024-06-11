@@ -3,7 +3,7 @@ import productImg from '../../assets/product/cartImg.png'
 import ptichka from '../../assets/product/ptichka.png'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import { useDispatch, useSelector } from 'react-redux'
-import { remuverFromCart, clearCart } from '../../context/slice/cartSlice'
+import { remuverFromCart, clearCart, incCart, decCart } from '../../context/slice/cartSlice'
 import Empty from '../empty/Empty'
 import PhoneInput from 'react-phone-number-input/input'
 
@@ -27,6 +27,9 @@ const CartComponent = () => {
     //  Get updates: https://api.telegram.org/bot7479336002:AAE-fiEczU4hqcNKjmeBKZhRtwj_toutzJI/getUpdates
 
 
+    let sum = cartData.reduce((acc, el) => {
+        return acc + el.quantity * el.price
+    }, 0)
 
     const handlePayment = () => {
         if (!firstName || !email || !address || !phone) {
@@ -102,9 +105,9 @@ const CartComponent = () => {
                                     </div>
                                     <div className='flex justify-between items-center'>
                                         <div className='flex gap-5 items-center '>
-                                            <p>-</p>
-                                            <p className='w-[60px] h-[60px] border rounded-[10px] flex justify-center items-center'>1</p>
-                                            <p>+</p>
+                                            <button className='w-[20px]' onClick={() => dispatch(decCart(el))}>-</button>
+                                            <p className='w-[60px] h-[60px] border rounded-[10px] flex justify-center items-center'>{el.quantity}</p>
+                                            <button className='w-[20px]' onClick={() => dispatch(incCart(el))}>+</button>
                                         </div>
                                         <div>
                                             <RiDeleteBin5Line className='cursor-pointer' onClick={() => dispatch(remuverFromCart(el))} size={25} />
@@ -125,7 +128,6 @@ const CartComponent = () => {
                             placeholder="телефон"
                             value={phone}
                             onChange={setPhone} />
-                        {/* <input className='border-2 w-full outline-none bg-inherit px-[10px] sm:px-[15px] md:px-[20px] py-[10px] sm:py-[12px] md:py-[14px] rounded-[100px] ' type="text" placeholder='телефон' /> */}
                         <input value={email} onChange={e => setEmail(e.target.value)} className='border-2 w-full outline-none bg-inherit px-[10px] sm:px-[15px] md:px-[20px] py-[10px] sm:py-[12px] md:py-[14px] rounded-[100px] ' type="email" placeholder='Электронная почта' />
                     </div>
                     <p className='text-[#454545] text-[22px] sm:text-[30px] md:text-[32px] font-[700] pt-3   '>Доставка</p>
@@ -138,11 +140,11 @@ const CartComponent = () => {
                 <div className='mt-[20px] bg-[#F2F2F2] rounded-[20px] px-[10px] md:px-[46px] py-[36px]  '>
                     <p className='text-[#454545] text-[22px] sm:text-[30px] md:text-[32px] font-[700] pt-3    '>Оплата</p>
                     <div className='flex flex-col md:flex-row gap-10 pt-8'>
-                        <p className='text-[#454545] text-[16px] font-[600]'>Товары ............................................. {oplata}₽</p>
-                        <p className='text-[#454545] text-[16px] font-[600]'>Доставка .............................................. {Math.round(oplata / 10)}₽</p>
+                        <p className='text-[#454545] text-[16px] font-[600]'>Товары ............................................. {sum}₽</p>
+                        <p className='text-[#454545] text-[16px] font-[600]'>Доставка .............................................. {Math.round(sum / 10)}₽</p>
                     </div>
 
-                    <p className='pt-[69px] text-[#454545] text-[24px] font-[700]'>{oplata + Math.round(oplata / 10)}₽</p>
+                    <p className='pt-[69px] text-[#454545] text-[24px] font-[700]'>{sum + Math.round(sum / 10)}₽</p>
                     <div className='flex flex-col sm:flex-row  gap-6 items-center pt-[28px]'>
                         <button onClick={() => {
                             handlePayment(),
