@@ -8,7 +8,13 @@ import { useLocation } from 'react-router-dom'
 const Footer = () => {
 
     const adminLocation = useLocation().pathname
-    if (adminLocation === "/login" || adminLocation === "/admin") {
+    if (adminLocation === "/login" ||
+        adminLocation === "/admin" ||
+        adminLocation === "/admin/create-product" ||
+        adminLocation === "/admin/create-category" ||
+        adminLocation === "/admin/manage-product" ||
+        adminLocation === "/admin/manage-category"
+    ) {
         return (
             <></>
         )

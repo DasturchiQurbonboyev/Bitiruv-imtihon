@@ -20,6 +20,10 @@ import Auth from './components/auth/Auth'
 import AdminPage from './page/admin/AdminPage'
 import LogInPage from './page/login/LogInPage'
 import NotFound from './components/not-found/NotFound'
+import CreateProductPage from './page/admin/create-product/CreateProductPage'
+import CreateCategoryPage from './page/admin/create-category/CreateCategoryPage'
+import ManageProductPage from './page/admin/manage-product/ManageProductPage'
+import ManageCategoryPage from './page/admin/manage-category/ManageCategoryPage'
 
 function App() {
 
@@ -42,7 +46,12 @@ function App() {
         <Route path='/cart' element={<CartPage />} />
         <Route path='/login' element={<LogInPage />} />
         <Route path='/' element={<Auth />} >
-          <Route path='/admin' element={<AdminPage />} />
+          <Route path='/admin' element={<AdminPage />} >
+            <Route path='create-product' element={<CreateProductPage />} />
+            <Route path='create-category' element={<CreateCategoryPage />} />
+            <Route path='manage-product' element={<ManageProductPage />} />
+            <Route path='manage-category' element={<ManageCategoryPage />} />
+          </Route>
         </Route >
         <Route path='*' element={<NotFound />} />
       </Routes>

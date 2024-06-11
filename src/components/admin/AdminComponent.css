@@ -1,0 +1,20 @@
+.admin {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+.admin__sidebar {
+    height: 100vh;
+    background: #454545;
+    padding: 30px;
+    color: white;
+}
+
+.admin__content {
+    padding: 22px 32px;
+}
+
+.navlink__btn {
+    border-radius: 8px;
+    background: #a3a0a0;
+}
