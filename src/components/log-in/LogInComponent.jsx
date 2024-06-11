@@ -17,7 +17,7 @@ const LogInComponent = () => {
             return toast.warn("Iltimos ma'lumotni to'ldiring");
         }
 
-        // Lokal tekshirish
+
         if (username === "john32" && password === "87654321") {
             localStorage.setItem("token", "Admin__token");
             window.open("/admin", "_self");

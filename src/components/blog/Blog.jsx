@@ -7,13 +7,11 @@ import more_bnt from '../../assets/blog/more_bnt.png'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 import './Blog.css';
 
-// import required modules
 import { Pagination } from 'swiper/modules';
 
 const Blog = ({ count, hidden }) => {

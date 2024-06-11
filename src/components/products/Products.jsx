@@ -6,23 +6,28 @@ import './Products.css'
 import { useGetProductsQuery } from '../../context/api/productsApi'
 import { Link } from 'react-router-dom'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
-import { FcLike } from 'react-icons/fc'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleSingle } from '../../context/slice/singleSlice.js'
 import { toggleWishlist } from '../../context/slice/wishlistSlice.js'
 import { addToCart } from '../../context/slice/cartSlice.js'
 import { toast } from 'react-toastify'
+import Loading from '../loading/Loading.jsx'
 
 const Products = () => {
-    const [limit, setLimit] = useState(8); // limit uchun holat
+    const [limit, setLimit] = useState(8);
     const { data, isLoading, isError } = useGetProductsQuery();
     const wishes = useSelector(state => state.wishlist.value)
 
     const handleSeeMore = () => {
-        setLimit((prevLimit) => prevLimit + 8); // har safar 8 ta mahsulotni qo'shish
+        setLimit((prevLimit) => prevLimit + 8);
     };
 
     const dispatch = useDispatch();
+
+
+    if (isLoading) return (
+        <Loading />
+    );
 
     return (
         <div className='pt-[50px]'>

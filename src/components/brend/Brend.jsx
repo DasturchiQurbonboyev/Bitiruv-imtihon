@@ -7,14 +7,10 @@ import buttonimg from '../../assets/hero/buttonimg.png'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './Brend.css'
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-// import './styles.css';
-
-// import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 
 const Brend = () => {

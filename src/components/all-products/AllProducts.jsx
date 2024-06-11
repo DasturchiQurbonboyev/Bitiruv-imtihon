@@ -7,7 +7,7 @@ import { FaRegHeart } from 'react-icons/fa'
 const AllProducts = () => {
 
 
-    const [limit, setLimit] = useState(16); // limit uchun holat
+    const [limit, setLimit] = useState(16);
     const { data, isLoading, isError } = useGetProductsQuery();
 
     let arr = data?.length
