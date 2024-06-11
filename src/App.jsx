@@ -19,6 +19,7 @@ import CartPage from './page/cart/CartPage'
 import Auth from './components/auth/Auth'
 import AdminPage from './page/admin/AdminPage'
 import LogInPage from './page/login/LogInPage'
+import NotFound from './components/not-found/NotFound'
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
         <Route path='/' element={<Auth />} >
           <Route path='/admin' element={<AdminPage />} />
         </Route >
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <ToastContainer />
       <Footer />

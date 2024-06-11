@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 
 const NotFound = () => {
     return (
-        <div>
-            <div className='flex justify-center items-center'>
+        <div className='kontainer'>
+            <div className='flex justify-center items-center py-10'>
                 <img src={notFound} alt="" />
             </div>
             <div className='flex flex-col items-center gap-[60px] mt-[18px]'>
