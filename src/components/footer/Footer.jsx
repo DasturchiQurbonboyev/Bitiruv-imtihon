@@ -3,8 +3,17 @@ import logo from '../../assets/navbar/logo.png'
 import visa from '../../assets/footer/visa.png'
 import vk from '../../assets/footer/vk.png'
 import './Footer.css'
+import { useLocation } from 'react-router-dom'
 
 const Footer = () => {
+
+    const adminLocation = useLocation().pathname
+    if (adminLocation === "/login" || adminLocation === "/admin") {
+        return (
+            <></>
+        )
+    }
+
     return (
         <div className='bg-[#F2F2F2] mt-10'>
             <div className='kontainer'>

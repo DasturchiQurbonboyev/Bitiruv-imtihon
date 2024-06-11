@@ -16,6 +16,9 @@ import ProductsPage from './page/products/ProductsPage'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CartPage from './page/cart/CartPage'
+import Auth from './components/auth/Auth'
+import AdminPage from './page/admin/AdminPage'
+import LogInPage from './page/login/LogInPage'
 
 function App() {
 
@@ -36,6 +39,10 @@ function App() {
         <Route path='/single' element={<Single />} />
         <Route path='/products' element={<ProductsPage />} />
         <Route path='/cart' element={<CartPage />} />
+        <Route path='/login' element={<LogInPage />} />
+        <Route path='/' element={<Auth />} >
+          <Route path='/admin' element={<AdminPage />} />
+        </Route >
       </Routes>
       <ToastContainer />
       <Footer />

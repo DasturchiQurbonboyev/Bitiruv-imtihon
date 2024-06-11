@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { TfiAlignRight } from 'react-icons/tfi';
 import { FaRegHeart } from 'react-icons/fa';
 import { CgShoppingCart } from 'react-icons/cg';
@@ -50,6 +50,15 @@ const Navbar = () => {
     const cartData = useSelector(state => state.cart.value)
     const wishes = useSelector(state => state.wishlist.value)
 
+
+    const adminLocation = useLocation().pathname
+
+
+    if (adminLocation === "/login" || adminLocation === "/admin") {
+        return (
+            <></>
+        )
+    }
 
     return (
         <header>
