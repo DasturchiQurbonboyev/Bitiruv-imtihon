@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import productImg from '../../assets/product/cartImg.png'
 import ptichka from '../../assets/product/ptichka.png'
 import { RiDeleteBin5Line } from 'react-icons/ri'
@@ -32,6 +32,12 @@ const CartComponent = () => {
     }, 0)
 
     const handlePayment = () => {
+
+
+        useEffect(() => {
+            window.scrollTo(0, 0)
+        }, [])
+
         if (!firstName || !email || !address || !phone) {
             alert('Iltimos, barcha maydonlarni to\'ldiring.');
             return;

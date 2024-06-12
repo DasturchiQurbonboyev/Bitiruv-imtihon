@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Lamps.css'
 const Lamps = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <div className='kontainer'>
             <div className=' lamps  '>

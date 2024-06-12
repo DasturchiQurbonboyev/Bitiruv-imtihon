@@ -5,6 +5,7 @@ import wastapp from '../../assets/product/wastapp.png'
 import tg from '../../assets/product/tg.png'
 import vk from '../../assets/product/vk.png'
 import viber from '../../assets/product/viber.png'
+import Loading from '../loading/Loading'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
 import "./SingleComponent.css"
@@ -23,7 +24,9 @@ const SingleComponent = () => {
     const wishlist = useSelector((state) => state.wishlist.value);
 
     if (!singleData || !singleData.id) {
-        return <div>Loading...</div>
+        return (
+            <Loading />
+        )
     }
 
     let exists = cartItems.some(item => item.id === singleData.id);

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import cart from '../../assets/hero/cart.png'
 import product from '../../assets/hero/product.png'
 import './Wishlist.css'
@@ -12,6 +12,9 @@ import { toast } from 'react-toastify'
 
 const Wishlist = () => {
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
 
     const wishes = useSelector(state => state.wishlist.value)

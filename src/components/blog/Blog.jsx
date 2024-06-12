@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import buttonimg from '../../assets/hero/buttonimg.png'
 import blog1 from '../../assets/blog/blog1.png'
 import blog2 from '../../assets/blog/blog2.png'
@@ -16,7 +16,9 @@ import { Pagination } from 'swiper/modules';
 
 const Blog = ({ count, hidden }) => {
 
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     let blogs = [
         {

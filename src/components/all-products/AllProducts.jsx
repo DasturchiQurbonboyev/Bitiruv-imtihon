@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import cart from '../../assets/hero/cart.png'
 import product from '../../assets/hero/product.png'
 import { useGetProductsQuery } from '../../context/api/productsApi'
 import { FaRegHeart } from 'react-icons/fa'
 
 const AllProducts = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
 
     const [limit, setLimit] = useState(16);
