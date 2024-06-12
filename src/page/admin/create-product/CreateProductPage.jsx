@@ -1,6 +1,10 @@
 import React from 'react'
+import { useCreateProductMutation } from '../../../context/api/productsApi';
 
 const CreateProductPage = () => {
+    const { isLoading, data, error } = useCreateProductMutation()
+
+
 
     return (
         <div>

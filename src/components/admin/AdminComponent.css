@@ -12,6 +12,8 @@
 
 .admin__content {
     padding: 22px 32px;
+    height: 100vh;
+    overflow: auto;
 }
 
 .navlink__btn {
