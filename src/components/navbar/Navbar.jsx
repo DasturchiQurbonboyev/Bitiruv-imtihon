@@ -77,9 +77,10 @@ const Navbar = () => {
     };
 
     return (
-        <header>
+        <>
             <div className='kontainer'>
-                <div className={`bg-white pb-5 navbar__animation ${navbarToggle ? "navbar__open" : ""}`}>
+                < div className={`bg-white pb-5 navbar__animation ${navbarToggle ? "navbar__open" : ""}`
+                }>
                     <div className='flex justify-between items-center py-[15px]'>
                         <div>
                             <RiCloseLargeFill onClick={() => setNavbarToggle(false)} className='cursor-pointer' size={28} />
@@ -110,7 +111,7 @@ const Navbar = () => {
                         <p className='text-[#fff]'>Каталог</p>
                     </div>
                     <ContactInfo />
-                </div>
+                </ div >
                 <div className='navbar__top'>
                     <ul className='flex justify-between items-center gap-[27px]'>
                         <li><Link to={"/about"} onClick={() => setNavbarToggle(false)} className='text-[#454545] text-[14px] font-[600] leading-[19.2px]'>О компании</Link></li>
@@ -125,9 +126,9 @@ const Navbar = () => {
                         <p>Заказать звонок</p>
                     </div>
                 </div>
-            </div>
-            <nav className='py-[10px]'>
-                <div className='kontainer navbar gap-[29px]'>
+            </div >
+            <nav className='py-[10px] z-10 bg-white shadow  border sticky top-0'>
+                <div className='kontainer navbar sticky gap-[29px]'>
                     <div className='flex items-center gap-5'>
                         <div className='navbar__open__btn'>
                             <TfiAlignRight onClick={() => setNavbarToggle(true)} className='cursor-pointer' size={25} />
@@ -194,25 +195,25 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
-            </nav>
-            <div>
-                <div className=' relative'>
-                    <div className='navbar__res__search flex-grow w-full'>
-                        <input value={value} onChange={e => setValue(e.target.value)} className='outline-none w-full flex-grow' type="text" placeholder='Поиск по товарам' />
-                        <div>
-                            <img className='cursor-pointer' src={searchIcon} alt="search" />
+                <div>
+                    <div className=' relative'>
+                        <div className='navbar__res__search flex-grow w-full'>
+                            <input value={value} onChange={e => setValue(e.target.value)} className='outline-none w-full flex-grow' type="text" placeholder='Поиск по товарам' />
+                            <div>
+                                <img className='cursor-pointer' src={searchIcon} alt="search" />
+                            </div>
+                        </div>
+                        <div className='absolute w-full '>
+                            {value && (
+                                <div className='absolute navbar__respons__search bg-[#a8a4a4]  w-full z-10 max-h-[400px] overflow-auto p-[15px]'>
+                                    <NavbarSearchModle data={filteredData} />
+                                </div>
+                            )}
                         </div>
                     </div>
-                    <div className='absolute w-full '>
-                        {value && (
-                            <div className='absolute navbar__respons__search bg-[#a8a4a4]  w-full z-10 max-h-[400px] overflow-auto p-[15px]'>
-                                <NavbarSearchModle data={filteredData} />
-                            </div>
-                        )}
-                    </div>
                 </div>
-            </div>
-        </header>
+            </nav>
+        </>
     );
 };
 
