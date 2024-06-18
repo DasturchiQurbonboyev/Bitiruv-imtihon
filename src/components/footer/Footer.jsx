@@ -3,7 +3,7 @@ import logo from '../../assets/navbar/logo.png'
 import visa from '../../assets/footer/visa.png'
 import vk from '../../assets/footer/vk.png'
 import './Footer.css'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const Footer = () => {
 
@@ -43,19 +43,19 @@ const Footer = () => {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">Покупателям</h2>
                             <ul className="text-gray-500 grid gap-[27px] dark:text-gray-400 font-medium">
                                 <li className="">
-                                    <a href="https://flowbite.com/" className="hover:underline">О компании</a>
+                                    <Link to={"/about"} className="hover:underline">О компании</Link>
                                 </li>
                                 <li>
-                                    <a href="https://tailwindcss.com/" className="hover:underline">Возврат</a>
+                                    <Link to={"/return"} className="hover:underline">Возврат</Link>
                                 </li>
                                 <li>
-                                    <a href="https://tailwindcss.com/" className="hover:underline">Гарантии</a>
+                                    <Link to={"/garant"} className="hover:underline">Гарантии</Link>
                                 </li>
                                 <li>
-                                    <a href="https://tailwindcss.com/" className="hover:underline">Контакты</a>
+                                    <Link to={"/contact"} className="hover:underline">Контакты</Link>
                                 </li>
                                 <li>
-                                    <a href="https://tailwindcss.com/" className="hover:underline">Блог</a>
+                                    <Link to={"blog"} className="hover:underline">Блог</Link>
                                 </li>
                             </ul>
                         </div>

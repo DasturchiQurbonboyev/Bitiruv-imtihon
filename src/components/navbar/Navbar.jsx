@@ -7,12 +7,14 @@ import { RiCloseLargeFill } from 'react-icons/ri';
 import { FiBarChart } from 'react-icons/fi';
 import logo from '../../assets/navbar/logo.png';
 import katalog from '../../assets/navbar/katalog.png';
-import search from '../../assets/navbar/search.png';
+import searchIcon from '../../assets/navbar/search.png';
 import like from '../../assets/navbar/like.png';
 import svyaz from '../../assets/navbar/svyaz.png';
 import cart from '../../assets/navbar/cart.png';
 import './Navbar.css';
 import { useSelector } from 'react-redux';
+import NavbarSearchModle from './NavbarSearchModle';
+import { useGetProductsQuery } from '../../context/api/productsApi';
 
 const NavbarLinks = ({ onClick }) => (
     <ul className='mt-5'>
@@ -46,13 +48,18 @@ const ContactInfo = () => (
 
 const Navbar = () => {
     const [navbarToggle, setNavbarToggle] = useState(false);
+    const [value, setValue] = useState('');
+    const [searchModul, setSearchModul] = useState(false)
 
-    const cartData = useSelector(state => state.cart.value)
-    const wishes = useSelector(state => state.wishlist.value)
+    const cartData = useSelector(state => state.cart.value);
+    const wishes = useSelector(state => state.wishlist.value);
+    const { data, isLoading } = useGetProductsQuery();
 
+    const filteredData = data?.filter(product =>
+        product.title.trim().toLowerCase().includes(value.toLowerCase().trim())
+    );
 
-    const adminLocation = useLocation().pathname
-
+    const adminLocation = useLocation().pathname;
 
     if (adminLocation === "/login" ||
         adminLocation === "/admin" ||
@@ -60,12 +67,14 @@ const Navbar = () => {
         adminLocation === "/admin/create-category" ||
         adminLocation === "/admin/manage-product" ||
         adminLocation === "/admin/manage-category"
-
     ) {
-        return (
-            <></>
-        )
+        return null;
     }
+
+
+
+    const handleFocus = () => {
+    };
 
     return (
         <header>
@@ -79,9 +88,8 @@ const Navbar = () => {
                             <Link to={"/wishlist"} onClick={() => setNavbarToggle(false)}>
                                 <div className='relative'>
                                     <FaRegHeart className='cursor-pointer' size={25} />
-                                    {wishes?.length > 0 ?
-                                        <div className='absolute -top-4 flex justify-center items-center rounded-[30px] -right-5 text-white bg-[#C63C3C] px-[5px]'>{wishes?.length}</div> :
-                                        <></>
+                                    {wishes?.length > 0 &&
+                                        <div className='absolute -top-4 flex justify-center items-center rounded-[30px] -right-5 text-white bg-[#C63C3C] px-[5px]'>{wishes?.length}</div>
                                     }
                                 </div>
                             </Link>
@@ -89,9 +97,8 @@ const Navbar = () => {
                             <Link to={"/cart"} onClick={() => setNavbarToggle(false)}>
                                 <div className='relative'>
                                     <CgShoppingCart className='cursor-pointer' size={27} />
-                                    {wishes?.length > 0 ?
-                                        <div className='absolute -top-4 flex justify-center items-center rounded-[30px] -right-4 text-white bg-[#C63C3C] px-[5px]'>{wishes?.length}</div> :
-                                        <></>
+                                    {cartData?.length > 0 &&
+                                        <div className='absolute -top-4 flex justify-center items-center rounded-[30px] -right-4 text-white bg-[#C63C3C] px-[5px]'>{cartData?.length}</div>
                                     }
                                 </div>
                             </Link>
@@ -132,34 +139,38 @@ const Navbar = () => {
                     <div className='navbar__res'>
                         <Link className='relative' to={"/wishlist"}>
                             <FaRegHeart size={25} />
-                            {wishes?.length > 0 ?
-                                <div className='absolute -top-4 flex justify-center items-center rounded-[30px] -right-5 text-white bg-[#C63C3C] px-[5px]'>{wishes?.length}</div> :
-                                <></>
+                            {wishes?.length > 0 &&
+                                <div className='absolute -top-4 flex justify-center items-center rounded-[30px] -right-5 text-white bg-[#C63C3C] px-[5px]'>{wishes?.length}</div>
                             }
                         </Link>
                         <Link className='relative' to={"/cart"}>
                             <CgShoppingCart size={27} />
-                            {cartData?.length > 0 ?
-                                <div className='absolute -top-4 flex justify-center items-center rounded-[30px] -right-5 text-white bg-[#C63C3C] px-[5px]'>{cartData?.length}</div> :
-                                <></>
+                            {cartData?.length > 0 &&
+                                <div className='absolute -top-4 flex justify-center items-center rounded-[30px] -right-5 text-white bg-[#C63C3C] px-[5px]'>{cartData?.length}</div>
                             }
                         </Link>
                     </div>
-                    <div className='navbar__minu justify-end flex-grow gap-[12px] items-end'>
+                    <div className='navbar__minu justify-between flex-grow gap-[12px] items-end'>
                         <div className='navbar__katalog__btn'>
                             <img className='h-[22px]' src={katalog} alt="katalog" />
                             <p className='text-[#fff]'>Каталог</p>
                         </div>
-                        <div className='navbar__search'>
-                            <input className='outline-none w-full' type="text" placeholder='Поиск по товарам' />
-                            <img className='cursor-pointer' src={search} alt="search" />
+                        <div className='relative flex-grow'>
+                            <div className='navbar__search  flex-grow'>
+                                <input onFocus={handleFocus} value={value} onChange={e => setValue(e.target.value)} className='flex-grow outline-none w-full' type="text" placeholder='Поиск по товарам' />
+                                <img className='cursor-pointer' src={searchIcon} alt="search" />
+                            </div>
+                            {value && (
+                                <div className='absolute bg-[#868484]  w-full z-10 max-h-[400px] overflow-auto '>
+                                    <NavbarSearchModle setValue={setValue} data={filteredData} />
+                                </div>
+                            )}
                         </div>
                         <div className='flex items-end gap-[30px]'>
                             <Link to={"/wishlist"}>
                                 <div className='flex relative flex-col cursor-pointer justify-center items-center'>
-                                    {wishes?.length > 0 ?
-                                        <div className='absolute -top-5 flex justify-center items-center rounded-[30px] -right-1 text-white bg-[#C63C3C] px-[5px]'>{wishes?.length}</div> :
-                                        <></>
+                                    {wishes?.length > 0 &&
+                                        <div className='absolute -top-5 flex justify-center items-center rounded-[30px] -right-1 text-white bg-[#C63C3C] px-[5px]'>{wishes?.length}</div>
                                     }
                                     <img src={like} alt="like" />
                                     <span>Избранное</span>
@@ -173,9 +184,8 @@ const Navbar = () => {
                             </Link>
                             <Link to={"/cart"}>
                                 <div className='flex relative flex-col justify-center items-center'>
-                                    {cartData?.length > 0 ?
-                                        <div className='absolute -top-5 flex justify-center items-center rounded-[30px] -right-1 text-white bg-[#C63C3C] px-[5px]'>{cartData?.length}</div> :
-                                        <></>
+                                    {cartData?.length > 0 &&
+                                        <div className='absolute -top-5 flex justify-center items-center rounded-[30px] -right-1 text-white bg-[#C63C3C] px-[5px]'>{cartData?.length}</div>
                                     }
                                     <img src={cart} alt="like" />
                                     <span>Корзина</span>
@@ -186,10 +196,19 @@ const Navbar = () => {
                 </div>
             </nav>
             <div>
-                <div className='navbar__res__search'>
-                    <input className='outline-none w-full' type="text" placeholder='Поиск по товарам' />
-                    <div>
-                        <img className='cursor-pointer' src={search} alt="search" />
+                <div className=' relative'>
+                    <div className='navbar__res__search flex-grow w-full'>
+                        <input value={value} onChange={e => setValue(e.target.value)} className='outline-none w-full flex-grow' type="text" placeholder='Поиск по товарам' />
+                        <div>
+                            <img className='cursor-pointer' src={searchIcon} alt="search" />
+                        </div>
+                    </div>
+                    <div className='absolute w-full '>
+                        {value && (
+                            <div className='absolute navbar__respons__search bg-[#a8a4a4]  w-full z-10 max-h-[400px] overflow-auto p-[15px]'>
+                                <NavbarSearchModle data={filteredData} />
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

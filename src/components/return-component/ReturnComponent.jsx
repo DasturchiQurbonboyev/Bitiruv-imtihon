@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const ReturnComponent = () => {
+
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+
+
     return (
         <div className='pt-[50px]'>
+            <div className='kontainer'>
+                <Link to={"/"}>Главная     ></Link> <Link to={"/return"}>Возврат</Link>
+            </div>
             <div className='kontainer grid gap-6 sm:grid-cols-2'>
                 <div>
                     <p className='text-[#454545] shipping__title   sm:text-[64px] font-[700] leading-[70.4px] sm:max-w-[320px]   '>Возврат</p>

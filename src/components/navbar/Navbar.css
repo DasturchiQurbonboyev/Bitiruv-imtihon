@@ -87,12 +87,21 @@
     display: none;
 }
 
+.navbar__respons__search {
+    display: none;
+}
+
 @media (max-width:880px) {
 
     .navbar__minu,
     .navbar__top {
         display: none;
     }
+
+    .navbar__respons__search {
+        display: block;
+    }
+
 
     .navbar__open__btn {
         display: block;

@@ -1,9 +1,11 @@
 import React from 'react'
 import { useCreateProductMutation } from '../../../context/api/productsApi';
+import { useSelector } from 'react-redux';
 
 const CreateProductPage = () => {
     const { isLoading, data, error } = useCreateProductMutation()
-
+    const state = useSelector((state) => state.categoryes.categoryes);
+    console.log(data);
 
 
     return (
@@ -24,7 +26,12 @@ const CreateProductPage = () => {
 
                 <label htmlFor="Category">Category</label><br />
                 <select className='w-full border mt-2 mb-[10px] bg-[#F8f8f8] px-4 py-[8px] rounded-[10px] outline-none ' name="" id="Category">
-                    <option value=""></option>
+                    {
+                        state?.map((el, inx) => (
+                            <option key={inx} value={el.title}>{el.title}</option>
+
+                        ))
+                    }
                 </select><br />
 
                 <label htmlFor="Desc">Desc</label><br />

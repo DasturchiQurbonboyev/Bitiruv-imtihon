@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 const GarantComponent = () => {
 
-    useEffectt(() => {
+    useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
 

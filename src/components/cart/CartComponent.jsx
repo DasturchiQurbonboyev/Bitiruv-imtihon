@@ -68,6 +68,9 @@ const CartComponent = () => {
 
         return (
             <div className='kontainer'>
+                <div className=''>
+                    <Link to={"/"}>Главная     ></Link> <Link to={"/return"}>Возврат</Link>
+                </div>
                 <div className='bg-[#F2F2F2] px-[20px] sm:px-[46px] py-[36px] rounded-[20px] mt-[50px]'>
                     <div className=' hidden sm:flex'>
                         <div className='w-[120px]'>

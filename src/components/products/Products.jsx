@@ -78,9 +78,9 @@ const Products = () => {
                                 <div className='relative flex justify-center items-center mb-[32px]'>
                                     <div onClick={() => dispatch(toggleWishlist(el))} className='absolute top-0 right-0'>
                                         {
-                                            wishes.some(w => w.id === el.id) ?
-                                                <FaHeart size={25} /> :
-                                                <FaRegHeart size={25} />
+                                            wishes.some(w => w?.id === el.id) ?
+                                                <FaHeart className='cursor-pointer' size={25} /> :
+                                                <FaRegHeart className='cursor-pointer' size={25} />
                                         }
                                     </div>
                                     <Link to={"/single"}>
