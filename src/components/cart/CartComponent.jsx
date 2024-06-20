@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { remuverFromCart, clearCart, incCart, decCart } from '../../context/slice/cartSlice'
 import Empty from '../empty/Empty'
 import PhoneInput from 'react-phone-number-input/input'
+import { Link } from 'react-router-dom';
+
 
 const CartComponent = () => {
     const dispatch = useDispatch();
@@ -69,7 +71,7 @@ const CartComponent = () => {
         return (
             <div className='kontainer'>
                 <div className=''>
-                    <Link to={"/"}>Главная     ></Link> <Link to={"/return"}>Возврат</Link>
+                    <Link to={"/"}>Главная   </Link> <Link to={"/return"}>Возврат</Link>
                 </div>
                 <div className='bg-[#F2F2F2] px-[20px] sm:px-[46px] py-[36px] rounded-[20px] mt-[50px]'>
                     <div className=' hidden sm:flex'>

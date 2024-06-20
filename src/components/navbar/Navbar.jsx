@@ -144,7 +144,7 @@ const Navbar = () => {
                                 <div className='absolute -top-4 flex justify-center items-center rounded-[30px] -right-5 text-white bg-[#C63C3C] px-[5px]'>{wishes?.length}</div>
                             }
                         </Link>
-                        <Link className='relative' to={"/cart"}>
+                        <Link to={"/cart"} className='relative'>
                             <CgShoppingCart size={27} />
                             {cartData?.length > 0 &&
                                 <div className='absolute -top-4 flex justify-center items-center rounded-[30px] -right-5 text-white bg-[#C63C3C] px-[5px]'>{cartData?.length}</div>
